@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>吴开 - 个人简历</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #3498db;
+            --secondary: #2c3e50;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --gray: #95a5a6;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--dark) 100%);
+            color: white;
+            padding: 3rem 2rem;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 200px;
+            height: 200px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+        }
+        
+        header::after {
+            content: "";
+            position: absolute;
+            bottom: -30px;
+            left: -30px;
+            width: 150px;
+            height: 150px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+        
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 0.5rem;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .title {
+            font-size: 1.4rem;
+            color: var(--light);
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .contact-item i {
+            color: var(--accent);
+        }
+        
+        .job-intention {
+            background: rgba(255, 255, 255, 0.15);
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            margin-top: 1rem;
+        }
+        
+        .section {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+        }
+        
+        h2 {
+            color: var(--secondary);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid var(--primary);
+            display: inline-block;
+        }
+        
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .section-title i {
+            color: var(--primary);
+            font-size: 1.8rem;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .skill-category {
+            background: rgba(52, 152, 219, 0.05);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary);
+        }
+        
+        h3 {
+            color: var(--secondary);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        ul {
+            list-style: none;
+            padding-left: 1.5rem;
+        }
+        
+        li {
+            margin-bottom: 0.8rem;
+            position: relative;
+        }
+        
+        li::before {
+            content: "•";
+            color: var(--primary);
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+        
+        .badge {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .education {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .education-info {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .education-details {
+            flex: 2;
+            min-width: 300px;
+        }
+        
+        .edu-item {
+            margin-bottom: 1.5rem;
+        }
+        
+        .edu-title {
+            font-weight: bold;
+            color: var(--secondary);
+            font-size: 1.2rem;
+        }
+        
+        .edu-date {
+            color: var(--gray);
+            font-style: italic;
+            margin: 0.3rem 0;
+        }
+        
+        .awards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .award-card {
+            background: rgba(231, 76, 60, 0.05);
+            border-radius: 8px;
+            padding: 1.5rem;
+            border-left: 4px solid var(--accent);
+            transition: transform 0.3s ease;
+        }
+        
+        .award-card:hover {
+            transform: scale(1.03);
+        }
+        
+        .award-title {
+            font-weight: bold;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+        
+        .experience-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .exp-card {
+            padding: 1.5rem;
+            border-radius: 8px;
+            background: rgba(46, 204, 113, 0.05);
+            border-left: 4px solid #2ecc71;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-top: 2rem;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.8rem;
+            }
+            
+            .skills-grid,
+            .awards-grid,
+            .experience-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <h1>吴开</h1>
+                <div class="title">计算机类 · 本科大一</div>
+                
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>19732599071</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>2364322387@qq.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>期望城市：苏州</span>
+                    </div>
+                </div>
+                
+                <div class="job-intention">
+                    求职意向：互联网行业
+                </div>
+            </div>
+        </header>
+        
+        <main>
+            <section class="section">
+                <h2><i class="fas fa-user"></i> 个人优势</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>能力优势</h3>
+                        <ul>
+                            <li>参加过多项比赛，包括个人赛和合作赛</li>
+                            <li>在paratranz进行社区翻译，有团队合作经验</li>
+                            <li>有学习能力，掌握C++、Python、HTML/CSS等技术</li>
+                            <li>担任宿舍舍长，加入楼管会，C6C8总楼长</li>
+                            <li>担任院青协主席，组织多次志愿活动</li>
+                            <li>在课程小组实验中多次担任组长并进行汇报</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3>综合素质</h3>
+                        <ul>
+                            <li>优秀的团队组织能力</li>
+                            <li>良好的团队协作精神</li>
+                            <li>积极的学习态度</li>
+                            <li>出色的沟通能力</li>
+                            <li>领导能力与责任感</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="section">
+                <h2><i class="fas fa-medal"></i> 荣誉奖项</h2>
+                <div class="awards-grid">
+                    <div class="award-card">
+                        <div class="award-title">蓝桥杯程序设计</div>
+                        <div>C++程序设计 江苏省省一等奖</div>
+                        <div>全国总决赛参赛资格</div>
+                    </div>
+                    
+                    <div class="award-card">
+                        <div class="award-title">计算机设计大赛</div>
+                        <div>江苏省省三等奖</div>
+                    </div>
+                    
+                    <div class="award-card">
+                        <div class="award-title">程序设计校赛</div>
+                        <div>大一第一名</div>
+                    </div>
+                    
+                    <div class="award-card">
+                        <div class="award-title">英语四级</div>
+                        <div>528分通过</div>
+                    </div>
+                    
+                    <div class="award-card">
+                        <div class="award-title">计算机二级</div>
+                        <div>良好</div>
+                    </div>
+                    
+                    <div class="award-card">
+                        <div class="award-title">校级优秀志愿者</div>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="section">
+                <h2><i class="fas fa-laptop-code"></i> 专业技能</h2>
+                <div>
+                    <span class="badge">C/C++</span>
+                    <span class="badge">Python</span>
+                    <span class="badge">HTML/CSS</span>
+                    <span class="badge">程序设计</span>
+                    <span class="badge">团队协作</span>
+                    <span class="badge">项目管理</span>
+                </div>
+            </section>
+            
+            <section class="section">
+                <h2><i class="fas fa-graduation-cap"></i> 教育经历</h2>
+                <div class="education">
+                    <div class="education-info">
+                        <div class="edu-item">
+                            <div class="edu-title">江苏科技大学</div>
+                            <div class="edu-date">2024 - 2028</div>
+                            <div>计算机科学与技术 本科</div>
+                        </div>
+                        
+                        <div class="edu-item">
+                            <div class="edu-title">主修课程</div>
+                            <div>C++程序设计</div>
+                            <div>通识课程</div>
+                        </div>
+                        
+                        <div class="edu-item">
+                            <div class="edu-title">资格证书</div>
+                            <div>大学英语四级</div>
+                            <div>计算机二级</div>
+                        </div>
+                    </div>
+                    
+                    <div class="education-details">
+                        <div class="edu-item">
+                            <div class="edu-title">在校职务</div>
+                            <ul>
+                                <li>班级生活委员，乒乓球班体委</li>
+                                <li>宿舍舍长，楼管会层长</li>
+                                <li>院青年志愿者协会主席</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="edu-item">
+                            <div class="edu-title">实习与项目经验</div>
+                            <ul>
+                                <li>参加计算机设计大赛并获得江苏省省三等奖</li>
+                                <li>多次组织并参与志愿者活动</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="section">
+                <h2><i class="fas fa-briefcase"></i> 实践经验</h2>
+                <div class="experience-grid">
+                    <div class="exp-card">
+                        <h3>志愿者经历</h3>
+                        <ul>
+                            <li>南山生态环境 - 6小时 (2025.03)</li>
+                            <li>金山湖清扫 - 5小时 (2025.02)</li>
+                            <li>尊崇宪法法律 - 6小时 (2024.12)</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="exp-card">
+                        <h3>社团经历</h3>
+                        <ul>
+                            <li>计算机协会成员 (2024.10-至今)</li>
+                            <li>青年志愿者协会成员 (2024.09-至今)</li>
+                            <li>组织元旦晚会等活动</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+        <footer>
+            <p>© 2025 吴开 - 个人简历 | 最后更新: 2025年5月</p>
+            <p>电话: 19732599071 | 邮箱: 2364322387@qq.com</p>
+        </footer>
+    </div>
+</body>
+</html>
